@@ -8,7 +8,6 @@ date '+%Y.%m.%d.%H.%M.%S'
 
 cd ${script_dir}
 pwd
-${script_dir}
 git submodule init
 git submodule update --init --recursive
 cd ${script_dir}/luajit2
@@ -21,7 +20,8 @@ sed -i -e 's;/MD;/MT;g' ./msvcbuild.bat
 cd ${script_dir}
 cat <<EOF > build.bat
 cd %~dp0\luajit2\src
-call "C:\Program Files\Microsoft Visual Studio\2022\Professional\Common7\Tools\VsDevCmd.bat"
+# call "C:\Program Files\Microsoft Visual Studio\2022\Professional\Common7\Tools\VsDevCmd.bat"
+call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\Tools\VsDevCmd.bat"
 call msvcbuild.bat
 EOF
 
